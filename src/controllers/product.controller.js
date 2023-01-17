@@ -17,7 +17,7 @@ const getProductById = async (req, res) => {
 const insertProduct = async (req, res) => {
   const { name } = req.body;
   const { type, message } = await productService.insertProduct(name);
-  if (type) return res.status(errorMap.mapError(type)).json(message);
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
   res.status(201).json(message); // 201 indica que a solicitação foi bem-sucedida e levou à criação de um recurso.
 };
 
