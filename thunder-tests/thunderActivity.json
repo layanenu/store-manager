@@ -18,16 +18,35 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000/products",
-    "url": "http://localhost:3000/products",
+    "url": "http://localhost:3000/sales",
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-17T13:37:57.738Z",
-    "modified": "2023-01-17T15:00:16.186Z",
+    "modified": "2023-01-17T17:58:07.038Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
       "raw": "{\n  \"name\": \"laya\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "7c6c02f8-94da-4806-970a-c33b4bb72d49",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3000/sales",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2023-01-17T21:04:03.733Z",
+    "modified": "2023-01-17T21:04:03.733Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
       "form": []
     },
     "tests": []
