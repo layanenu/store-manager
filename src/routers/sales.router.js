@@ -11,5 +11,7 @@ router.post(
   validateQuantity,
   salesController.insertSales,
 );
+router.get('/', salesController.listAllSales);
+router.get('/:id', salesController.getSaleById);
 
 module.exports = router;

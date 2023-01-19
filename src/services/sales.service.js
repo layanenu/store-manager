@@ -1,19 +1,5 @@
 const { salesModel, productModel, salesProduct } = require('../models');
-// const schema = require('./validations/validationsInputValues');
-
-// const listAllSales = async () => {
-//   const products = await productModel.listAllProducts();
-//   return { type: null, message: products };
-// };
-
-// const getSaleById = async (productId) => {
-//   const error = schema.validateId(productId);
-//   if (error.type) return error;
-
-//   const product = await productModel.getProductById(productId);
-//   if (!product) { return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' }; }
-//   return { type: null, message: product };
-// };
+const schema = require('./validations/validationsInputValues');
 
 const existId = async (newSales) => {
   const findId = await Promise.all(newSales.map(async (element) => {
@@ -25,8 +11,6 @@ const existId = async (newSales) => {
 };
 
 const insertSales = async (newSales) => {
-  // const error = schema.validateNewSales(sales);
-  // if (error.type) return error;
   await salesModel.insertSales();
   const productId = await existId(newSales);
   const ifIdExist = productId.every((element) => element === true);
@@ -37,6 +21,25 @@ const insertSales = async (newSales) => {
   return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
 };
 
+const listAllSales = async () => {
+  const sales = await salesProduct.listAllSales();
+  return { type: null, message: sales };
+};
+
+const getSaleById = async (saleId) => {
+  const error = schema.validateId(saleId);
+  if (error.type) return error;
+
+  const sale = await salesProduct.getSaleById(saleId);
+
+  if (!sale || sale.length === 0) {
+    return { type: 'SALE_NOT_FOUND', message: 'Sale not found' };
+  }
+  return { type: null, message: sale };
+};
+
 module.exports = {
   insertSales,
+  listAllSales,
+  getSaleById,
 };
