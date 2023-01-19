@@ -21,8 +21,17 @@ const insertProduct = async (req, res) => {
   res.status(201).json(message); // 201 indica que a solicitação foi bem-sucedida e levou à criação de um recurso.
 };
 
+const updateProductById = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+  const { type, message } = await productService.updateProductById(id, name);
+  if (type) return res.status(errorMap.mapError(type)).json({ message });
+  res.status(200).json(message);
+};
+
 module.exports = {
   listAllProducts,
   getProductById,
   insertProduct,
+  updateProductById,
 };
