@@ -27,3 +27,11 @@ REQUISITOS BONUS
 18 - Crie endpoint products/search?q=searchTerm<br/>
 19 - Desenvolva testes que cubram no mínimo 50% das camadas da sua aplicação<br/>
 20 - Desenvolva testes que cubram no mínimo 60% das camadas da sua aplicação<br/>
+
+HABILIDADES
+Node.js
+Express
+Middlewares
+API Rest
+Arquitetura MSC
+MySQL
